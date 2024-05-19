@@ -1,0 +1,28 @@
+{%extends 'index.html'%}
+{%load static%}
+
+{%block titulo%}ingreso{%endblock%}
+
+{%block contenido%}
+
+    <div class="">
+        <div class="">
+            <h2>LOGIN</h2>
+            <form  method="post" class="">
+                {%csrf_token%}
+                <label for="id_username"></label>
+                <input type="text" id="id_username" name="username" placeholder="nombre usuario">
+
+                <label for="id_password"></label>
+                <input type="password" id="id_password" name="password" placeholder="contraseña">
+                <p class="block">
+                    <button type="submit">Iniciar sesion</button>
+                </p>
+                <p>
+                    <a href="{%url 'registro_usuario'%}">Registrarse</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+{%endblock%}

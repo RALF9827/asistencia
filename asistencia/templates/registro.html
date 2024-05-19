@@ -1,0 +1,11 @@
+{%load static%}
+
+{%block titulo%}Registro{%endblock%}
+
+{%block contenido%}
+    <form method="post">
+        {%csrf_token%}
+        {{formulario.as_p}}
+        <button type="submit">Guardar</button>
+    </form>
+{%endblock%}
