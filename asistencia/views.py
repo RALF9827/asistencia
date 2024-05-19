@@ -11,10 +11,16 @@ from . import forms
 #     return render(request, template)
 
 class index(LoginRequiredMixin, View):
-    template = 'index.html'
+    plantilla = 'index.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template)
+        return render(request, self.plantilla)
+    
+class notificaciones(View):
+    plantilla = 'notificaciones.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.plantilla)
     
 class Registro(View):
     formulario = forms.F_usuario
