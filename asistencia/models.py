@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 # Create your models here.
 
@@ -74,7 +75,10 @@ def ruta_qr(instance, filename):
 
 class QR(models.Model):
     Texto_qr = models.TextField(null=False, blank=False, unique=True)
+    id_usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=False, blank=False, editable=False, db_column='id_usuario')
+    id_alum_mat_prof = models.ForeignKey(Alumnos_X_Materia_X_Profesor, on_delete=models.DO_NOTHING, editable=False, db_column='id_alum_mat_prof')
     direccion = models.ImageField(upload_to=ruta_qr, null=False, blank=False)
+    # fecha_generado = models.DateField(null=False, blank=False, editable=False, default=datetime.date)
     usado = models.BooleanField(default=False, null=False, editable=False)
 
     class Meta:
