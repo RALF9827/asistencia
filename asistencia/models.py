@@ -26,6 +26,7 @@ class Profesores(models.Model):
     Apellido = models.CharField(max_length=25, null=False, blank=False)
     Correo = models.CharField(max_length=40, null=False, blank=False)
     Telefono = models.CharField(max_length=10, null=False, blank=False)
+    id_usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, db_column='id_usuario')
 
     class Meta:
         db_table = 'Profesores'
@@ -39,6 +40,7 @@ class Alumnos(models.Model):
     Apellido = models.CharField(max_length=25, null=False, blank=False)
     Correo = models.CharField(max_length=40, null=False, blank=False)
     Telefono = models.CharField(max_length=10, null=False, blank=False)
+    id_usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, db_column='id_usuario')
 
     class Meta:
         db_table = 'Alumnos'
@@ -81,3 +83,6 @@ class QR(models.Model):
 class Asistencia_X_Alumno(models.Model):
     id_alum_mat_prof = models.ForeignKey(Alumnos_X_Materia_X_Profesor, on_delete=models.DO_NOTHING, db_column='id_alum_mat_prof')
     id_qr = models.ForeignKey(QR, on_delete=models.DO_NOTHING, db_column='id_qr')
+
+    class Meta:
+        db_table = 'asistenciaXalumno'
