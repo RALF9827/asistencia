@@ -8,5 +8,11 @@ urlpatterns = [
     path('Logout/', LogoutView.as_view(), name='logout'),
 
     path('registro/', views.Registro.as_view(), name='registro_usuario'),
-    path('notificaciones/', views.notificaciones.as_view(), name='notificaciones')
+    path('notificaciones/', views.notificaciones.as_view(), name='notificaciones'),
+
+    path('Registro_alumnos/', views.Alumnos.as_view(), name='registro_alumnos'),
+    path('Registro_profesores/', views.Profesores.as_view(), name='registro_profesores'),
+    path('Registro_materias/', views.Materias.as_view(), name='registro_materias'),
+    path('Materia_x_profesor/', views.Materia_X_Profesor.as_view(), name='asignar_profesor'),
+    path('Alumno_x_materia/', views.Alumnos_X_Materia_X_Profesor.as_view(), name='asignar_alumno'),
 ]
