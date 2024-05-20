@@ -6,6 +6,7 @@ from django.views.generic import View, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from . import forms
 from . import models
+from . import mixing
 import datetime
 
 # Create your views here.
@@ -51,7 +52,7 @@ class Registro(View):
             login(request, user)
         return redirect('index')
     
-class Alumnos(LoginRequiredMixin, View):
+class Alumnos(LoginRequiredMixin, mixing.Mx_Superuser, View):
     modelo = models.Alumnos
     formulario = forms.F_Alumnos
     plantilla = './administrador/alumnos.html'
@@ -71,7 +72,7 @@ class Alumnos(LoginRequiredMixin, View):
             formulario.save()
             return redirect ('registro_alumnos')
 
-class Profesores(LoginRequiredMixin, View):
+class Profesores(LoginRequiredMixin, mixing.Mx_Superuser, View):
     modelo = models.Profesores
     formulario = forms.F_Profesores
     plantilla = './administrador/profesores.html'
@@ -92,7 +93,7 @@ class Profesores(LoginRequiredMixin, View):
         return redirect ('registro_alumnos')
 
 #controla la logica de la vista de materias
-class Materias(LoginRequiredMixin, View):
+class Materias(LoginRequiredMixin, mixing.Mx_Superuser, View):
     modelo = models.Materia
     formulario = forms.F_Materia
     plantilla = './administrador/materias.html'
@@ -113,7 +114,7 @@ class Materias(LoginRequiredMixin, View):
         return redirect ('registro_materias')
     
 #controla la logica de la vista materia por profesor
-class Materia_X_Profesor(LoginRequiredMixin, View):
+class Materia_X_Profesor(LoginRequiredMixin, mixing.Mx_Superuser, View):
     modelo = models.Materia_X_Profesor
     formulario = forms.F_Materia_X_Profesor
     plantilla = './administrador/materia_x_profesor.html'
@@ -134,7 +135,7 @@ class Materia_X_Profesor(LoginRequiredMixin, View):
         return redirect ('asignar_profesor')
     
 #contrala la vista de materia por profesor
-class Alumnos_X_Materia_X_Profesor(LoginRequiredMixin, View):
+class Alumnos_X_Materia_X_Profesor(LoginRequiredMixin, mixing.Mx_Superuser, View):
     modelo = models.Alumnos_X_Materia_X_Profesor
     formulario = forms.F_Alumnos_X_Materia_X_Profesor
     plantilla = './administrador/alumnos_x_materia_x_profesor.html'
