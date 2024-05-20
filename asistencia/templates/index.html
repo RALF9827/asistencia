@@ -12,10 +12,12 @@
 </head>
 <body>
     {%block navegacion%}
-        <form method="post" action="{%url 'logout'%}">
-            {%csrf_token%}
-            <button type="submit">Salir</button>
-        </form>
+        <p>
+            <form method="post" action="{%url 'logout'%}">
+                {%csrf_token%}
+                <button type="submit">Salir</button>
+            </form>
+        </p>
         <p>
             <a href="{%url 'notificaciones'%}">notificaciones</a>
         </p>
