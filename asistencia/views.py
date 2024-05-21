@@ -234,7 +234,7 @@ class QR(LoginRequiredMixin, View):
         f_fecha = fecha.strftime('%Y-%m') #se convierte esa fecah en un str con formato año-mes
 
         #direccion_txt es el texto que almacenara el codigo qr
-        direccion_txt = f'http://192.168.18.87:8000/asistencia/QR/{mostrar + 1}_{f_fecha}/{id}' #cambiar la ip con la que se esta usando en el momento
+        direccion_txt = f'http://192.168.2.94:8000/asistencia/QR/{mostrar + 1}_{f_fecha}/{id}' #cambiar la ip con la que se esta usando en el momento
         #direccion_qr es el nombre con el que se almacenara y guardara en la base de datos
         direccion_qr = f'{mostrar + 1}_{f_fecha}{id}.png'
 
@@ -276,7 +276,7 @@ class QR_lector(LoginRequiredMixin, View):
         texto = kwargs['text']
         id = kwargs['pk']
 
-        texto_completo = f'http://192.168.18.87:8000/asistencia/QR/{texto}/{id}'
+        texto_completo = f'http://192.168.2.94:8000/asistencia/QR/{texto}/{id}'
 
         #se valida que el qr generado sea el mismo leido, llamando al ultimo que se genero
         max_id = self.modelo.objects.filter(id_usuario=request.user.id, usado=False, id_alum_mat_prof=id).values('Texto_qr', 'id', 'id_alum_mat_prof').latest('id')
