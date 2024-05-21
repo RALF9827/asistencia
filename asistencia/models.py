@@ -39,7 +39,7 @@ class Profesores(models.Model):
         db_table = 'Profesores'
 
     def __str__(self):
-        return self.Cedula_id
+        return f'{self.Cedula_id} - {self.Apellido} {self.Nombre}'
 
 class Alumnos(models.Model):
     Cedula_id = models.CharField(max_length=10, unique=True, null=False, blank=False)
@@ -53,7 +53,7 @@ class Alumnos(models.Model):
         db_table = 'Alumnos'
     
     def __str__(self):
-        return self.Cedula_id
+        return f'{self.Cedula_id} - {self.Apellido} {self.Nombre}'
 
 #relacionaba que profesor da la materia
 class Materia_X_Profesor(models.Model):
@@ -65,7 +65,7 @@ class Materia_X_Profesor(models.Model):
         db_table = 'materiasXprofesor'
     
     def __str__(self):
-        return self.Codigo
+        return f'{self.Codigo}-{self.id_materia.Nombre}'
 
 #relacionaba el alumno correspondiente a la materia y el profesor
 class Alumnos_X_Materia_X_Profesor(models.Model):

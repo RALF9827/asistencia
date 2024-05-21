@@ -20,19 +20,35 @@ class F_Profesores(forms.ModelForm):
     class Meta:
         model = models.Profesores
         fields = '__all__'
+        labels = {
+            'id_usuario':'Usuario',
+            'Cedula_id':'Cedula'
+        }
 
 class F_Alumnos(forms.ModelForm):
     class Meta:
         model = models.Alumnos
         fields = '__all__'
+        labels = {
+            'id_usuario':'Usuario',
+            'Cedula_id':'Cedula'
+        }
 
 class F_Materia_X_Profesor(forms.ModelForm):
     class Meta:
         model = models.Materia_X_Profesor
         fields = '__all__'
+        labels = {
+            'id_materia':'Materia',
+            'id_profesor':'Profesor'
+        }
 
 class F_Alumnos_X_Materia_X_Profesor(forms.ModelForm):
     class Meta:
         model = models.Alumnos_X_Materia_X_Profesor
         fields = '__all__'
+        labels = {
+            'id_alumno':'Alumno',
+            'id_mat_prof':'Grupo Materia'
+        }
 

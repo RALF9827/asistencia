@@ -4,9 +4,11 @@
 {%block titulo%}asignar profesor{%endblock%}
 
 {%block contenido%}
-    <form method="post">
+<section class="section_form">
+    <form method="post" id="consultation-form" class="feed-form">
         {%csrf_token%}
         {{formulario.as_p}}
         <button type="submit">Guardar</button>
     </form>
+</section>
 {%endblock%}
