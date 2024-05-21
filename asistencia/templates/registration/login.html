@@ -3,29 +3,38 @@
 
 {%block titulo%}ingreso{%endblock%}
 
+{%block estilo%}
+    <link rel="stylesheet" href="{%static '.\css\login.css'%}">
+{%endblock%}
+
 {%block navegacion%}
 {%endblock%}
 
 {%block contenido%}
 
-    <div class="">
-        <div class="">
-            <h2>LOGIN</h2>
-            <form  method="post" class="">
-                {%csrf_token%}
+    <section>
+        <form  method="post" class="">
+            <h1>login</h1>
+            {%csrf_token%}
+            <div class="inputbox">
                 <label for="id_username"></label>
                 <input type="text" id="id_username" name="username" placeholder="nombre usuario">
-
+            </div>
+            <div class="inputbox">
                 <label for="id_password"></label>
                 <input type="password" id="id_password" name="password" placeholder="contraseña">
-                <p class="block">
-                    <button type="submit">Iniciar sesion</button>
-                </p>
-                <p>
-                    <a href="{%url 'registro_usuario'%}">Registrarse</a>
-                </p>
-            </form>
-        </div>
-    </div>
+            </div>
+            <div class="forget">
+                <label for=""><input type="checkbox">recordar</label>
+                <a href="">olvide la contraseña</a>
+            </div>
+            <button type="submit">Ingresar</button>
+            <br>
+            <br>
+            <div class="register">
+                <a href="{%url 'registro_usuario'%}">Registrarse</a>
+            </div>
+        </form>
+    </section>
 
 {%endblock%}

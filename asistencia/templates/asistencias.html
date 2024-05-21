@@ -1,0 +1,38 @@
+{%extends 'index.html'%}
+{%load static%}
+
+{%block titulo%}Asistencia{%endblock%}
+
+{%block contenido%}
+
+    <center><button type="button"><a href="{%url 'exportar_excel'%}">Excel</a></button></center>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Alumno</th>
+                    <th>Profesor</th>
+                    <th>Codigo</th>
+                    <th>Materia</th>
+                    <th>Fecha</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {%for i in contexto.consulta%}
+                <tr>
+                    <th>{{forloop.counter}}</th>
+                    <th>{{i.id_alum_mat_prof.id_alumno.Nombre}} {{i.id_alum_mat_prof.id_alumno.Apellido}}</th>
+                    <th>{{i.id_alum_mat_prof.id_mat_prof.id_profesor.Nombre}} {{i.id_alum_mat_prof.id_mat_prof.id_profesor.Apellido}}</th>
+                    <th>{{i.id_alum_mat_prof.id_mat_prof.Codigo}}</th>
+                    <th>{{i.id_alum_mat_prof.id_mat_prof.id_materia.Nombre}}</th>
+                    <th>{{i.fecha_generado}}</th>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{%endblock%}

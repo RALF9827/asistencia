@@ -18,6 +18,8 @@ urlpatterns = [
     path('QR/Detector/<int:pk>', views.QR.as_view(), name='generar_qr'),
     path('QR/Detector/QR_detector/<int:pk>', views.QR_detector.as_view(), name='detector_qr'),
     path('QR/<str:text>/<int:pk>', views.QR_lector.as_view(), name='qr_leido'),
+    path('Estadisticas/', views.Asistencias.as_view(), name='asistencias'),
+    path('Estadisticas/exportar/', views.Asistencias.export_to_excel, name='exportar_excel'),
 
     path('listado_materias/', views.Listado_materias.as_view(), name='listado_materias'),
     
