@@ -1,0 +1,20 @@
+{%extends 'index.html'%}
+{%load static%}
+
+{%block titulo%}QR{%endblock%}
+
+{%block navegacion%}
+{%endblock%}
+
+{%block contenido%}
+
+    <center><h2>espere</h2></center>
+
+    <script>
+        // Cambia ala pagina donde tenemos el qr
+        setTimeout(function() {
+          window.location.href = "QR_detector/{{id}}";
+        }, 2000); // 2000 milisegundos = 2 segundos
+    </script>
+
+{%endblock%}

@@ -1,0 +1,49 @@
+#menu {
+    font-family: "Roboto", sans-serif ;
+    width: 200px;
+    height: 100%;
+    background-color: #80ba27;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+#menu ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu li a{
+  display: block;
+  color: #fff;
+  padding: 16px;
+  text-decoration: none;
+}
+
+#menu li a:hover{
+  background-color: #cecaca94;
+  color: #fff;
+}
+
+#close {
+    background-color: #80ba27;
+    color: #fff;
+    border: none;
+    padding: 10px 85px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: flex;
+    margin-top: flex;
+}
+  
+#close:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* main {
+    margin-left: 210px;
+    padding: 20px;
+} */

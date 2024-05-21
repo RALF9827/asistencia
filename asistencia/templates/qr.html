@@ -1,0 +1,19 @@
+{%extends 'index.html'%}
+{%load static%}
+
+{%block titulo%}QR{%endblock%}
+
+{%block navegacion%}
+{%endblock%}
+
+{%block contenido%}
+    <center><img src="\media\{{consulta}}"></center>
+
+    <script>
+        // Cambia ala pagina donde tenemos el qr
+        setTimeout(function() {
+          window.location.href = "{%url 'index'%}";
+        }, 10000); // 10000 milisegundos = 10 segundos
+    </script>
+
+{%endblock%}
