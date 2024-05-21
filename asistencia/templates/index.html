@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block titulo%}asistencias{%endblock%}</title>
     <link rel="stylesheet" href="{%static '.\css\nav.css'%}">
-
+    <link rel="stylesheet" href="{%static '.\css\formulario.css'%}">
+    
     {%block estilo%}
     {%endblock%}
 
@@ -16,6 +17,9 @@
         <div class="container">
             <div id="menu">
                 <ul>
+                    <li>
+                        <h1>bienvenido {{user.first_name}}</h1>
+                    </li>
                     <li>
                         <a href="{%url 'notificaciones'%}">notificaciones</a>
                     </li>
@@ -57,7 +61,7 @@
             </div>
         </div>
     {%endblock%}
-<main>
+
     {%block contenido%}
         <h2>welcome ingeniero</h2>
         <h2>prueba del branch</h2>
@@ -67,6 +71,6 @@
 
     {%block scripts%}
     {%endblock%}
-</main>    
+
 </body>
 </html>

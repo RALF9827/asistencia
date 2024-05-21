@@ -5,12 +5,14 @@
 
 {%block contenido%}
 
-    {%for i in extra_contexto.consulta%}
-        <a href="{%url 'generar_qr' i.id%}">
-            <div>
-                <h2>{{i.id_mat_prof.Codigo}} - {{i.id_mat_prof.id_materia.Nombre}}</h2>
-            </div>
-        </a>
-    {%endfor%}
+    <div>
+        {%for i in extra_contexto.consulta%}
+            <a href="{%url 'generar_qr' i.id%}">
+                <div class="box">
+                    <h2>{{i.id_mat_prof.Codigo}} - {{i.id_mat_prof.id_materia.Nombre}}</h2>
+                </div>
+            </a>
+        {%endfor%}
+    </div>
 
 {%endblock%}
