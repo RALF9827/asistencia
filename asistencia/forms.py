@@ -3,10 +3,13 @@ from django.contrib.auth.models import User
 from django import forms
 from . import models
 
+#formulario de creacion par ausuarios nuevos
 class F_usuario(UserCreationForm):
-    class Meta:
-        model = User
+    class Meta: #clase meta permite obtener el modelo al que ara referencia el formulario
+        model = User #llama el modelo que se usara en el formulario
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email']
+        #fields se llaman las variables del modelo se puede llamar con una lista o con
+        #'__all__' que traera todas las variables del modelo
 
 class F_Materia(forms.ModelForm):
     class Meta:

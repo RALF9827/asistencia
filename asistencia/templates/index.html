@@ -5,48 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block titulo%}asistencias{%endblock%}</title>
+    <link rel="stylesheet" href="{%static '.\css\nav.css'%}">
 
-    {%block stilo%}
+    {%block estilo%}
     {%endblock%}
 
 </head>
 <body>
     {%block navegacion%}
-        <p>
-            <form method="post" action="{%url 'logout'%}">
-                {%csrf_token%}
-                <button type="submit">Salir</button>
-            </form>
-        </p>
-
-        <p>
-            <a href="{%url 'notificaciones'%}">notificaciones</a>
-        </p>
-        <p>
-            <a href="{%url 'index'%}">Home</a>
-        </p>
-        <p>
-            <a href="{%url 'listado_materias'%}">Materias</a>
-        </p>
-        {%if request.user.is_superuser%}
-            <p>
-                <a href="{%url 'registro_alumnos'%}">Registrar alumno</a>
-            </p>
-            <p>
-                <a href="{%url 'registro_profesores'%}">Registrar profesores</a>
-            </p>
-            <p>
-                <a href="{%url 'registro_materias'%}">Registrar materias</a>
-            </p>
-            <p>
-                <a href="{%url 'asignar_profesor'%}">asignar profesor</a>
-            </p>
-            <p>
-                <a href="{%url 'asignar_alumno'%}">asignar alumno</a>
-            </p>
-        {%endif%}
+        <div class="container">
+            <div id="menu">
+                <ul>
+                    <li>
+                        <a href="{%url 'notificaciones'%}">notificaciones</a>
+                    </li>
+                    <li>
+                        <a href="{%url 'index'%}">Home</a>
+                    </li>
+                    {%if request.user.is_active and not request.user.is_superuser%}
+                        <li>
+                            <a href="{%url 'listado_materias'%}">Materias</a>
+                        </li>
+                    {%endif%}
+                    {%if request.user.is_superuser%}
+                        <li>
+                            <a href="{%url 'registro_alumnos'%}">Registrar alumno</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'registro_profesores'%}">Registrar profesores</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'registro_materias'%}">Registrar materias</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'asignar_profesor'%}">asignar profesor</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'asignar_alumno'%}">asignar alumno</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'asistencias'%}">asistencias</a>
+                        </li>
+                    {%endif%}
+                    <li>
+                        <form method="post" action="{%url 'logout'%}">
+                            {%csrf_token%}
+                            <button id="close" type="submit">Salir</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
     {%endblock%}
-
+<main>
     {%block contenido%}
         <h2>welcome ingeniero</h2>
         <h2>prueba del branch</h2>
@@ -56,6 +67,6 @@
 
     {%block scripts%}
     {%endblock%}
-    
+</main>    
 </body>
 </html>
