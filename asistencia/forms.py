@@ -7,7 +7,7 @@ from . import models
 class F_usuario(UserCreationForm):
     class Meta: #clase meta permite obtener el modelo al que ara referencia el formulario
         model = User #llama el modelo que se usara en el formulario
-        fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email']
+        fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'is_active', 'is_staff', 'is_superuser']
         #fields se llaman las variables del modelo se puede llamar con una lista o con
         #'__all__' que traera todas las variables del modelo
 
